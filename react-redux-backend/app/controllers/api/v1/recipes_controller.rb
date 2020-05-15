@@ -18,7 +18,7 @@ class RecipesController < ApplicationController
     @recipe = Recipe.new(recipe_params)
 
     if @recipe.save
-      render json: @recipe, status: :created, location: @recipe
+      render json: @recipe, status: :created, location: @recipe, include: :chef
     else
       render json: @recipe.errors, status: :unprocessable_entity
     end
@@ -27,7 +27,7 @@ class RecipesController < ApplicationController
   # PATCH/PUT /recipes/1
   def update
     if @recipe.update(recipe_params)
-      render json: @recipe
+      render json: @recipe, include: :chef
     else
       render json: @recipe.errors, status: :unprocessable_entity
     end
@@ -46,6 +46,6 @@ class RecipesController < ApplicationController
 
     # Only allow a trusted parameter "white list" through.
     def recipe_params
-      params.require(:recipe).permit(:title, :ingredients, :chef_id)
+      params.require(:recipe).permit(:title, :ingredients, :instructions, :chef_id)
     end
 end

@@ -5,12 +5,12 @@ class ChefsController < ApplicationController
   def index
     @chefs = Chef.all
 
-    render json: @chefs
+    render json: @chefs, include: :recipes
   end
 
   # GET /chefs/1
   def show
-    render json: @chef
+    render json: @chef, include: :recipe
   end
 
   # POST /chefs
