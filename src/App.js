@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import './App.css';
+import Search from './component/Search';
 
 
 export default class App extends Component {
@@ -7,6 +8,7 @@ export default class App extends Component {
     return (
       <div>
         <h1>This should Render</h1>
+        <Search />
       </div>
     )
   }
