@@ -1,4 +1,4 @@
-class ChefsController < ApplicationController
+class Api::V1::ChefsController < ApplicationController
   before_action :set_chef, only: [:show, :update, :destroy]
 
   # GET /chefs
