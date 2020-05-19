@@ -10,7 +10,7 @@ class Api::V1::ChefsController < ApplicationController
 
   # GET /chefs/1
   def show
-    render json: @chef, include: :recipe
+    render json: @chef, include: :recipes
   end
 
   # POST /chefs
