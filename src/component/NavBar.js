@@ -34,7 +34,7 @@ class Navbar extends React.Component {
             </NavLink>
 
                 <NavLink
-                    to="/chefs/new"
+                    to="/About"
                     exact
                     style={link}
                     activeStyle={{
