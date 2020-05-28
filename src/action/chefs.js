@@ -1,19 +1,15 @@
-export const loadChefs = chefs => ({ type: "LOAD_CHEFS", chefs });
-
-export const addChef = chef => ({ type: "ADD_CHEF", chef});
 
 export const fetchChefs = () => {
-    return dispatch => {
-        return fetch("http://localhost:3001/api/v1/chefs")
-        .then(res => res.json)
-        .then(chefJSON => {
-            if (chefJSON.error) {
-                alert(chefJSON.error)
-            }
-            else {
-                dispatch(loadChefs(chefJSON))
-            }
+    return (dispatch) => {
+        dispatch({ type: 'LOAD_CHEFS'})
+        fetch('http://localhost:3001/api/v1/chefs')
+        .then(res => {
+            return res.json()
         })
+        .then(chefJSON => {
+            dispatch({ type: 'ADD_CHEFS', chefs: chefJSON})
+        })
+      
     }
 }
 
@@ -36,7 +32,7 @@ export const createChef = (chef) => {
                 alert(newChef.error)
             }
             else {
-                dispatch(addChef(newChef))
+                dispatch()
             }
             return newChef
         })
