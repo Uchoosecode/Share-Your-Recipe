@@ -2,8 +2,32 @@
   text-align: center;
 }
 
+.about-page {
+  text-align: left;
+}
+
+.about-header {
+  text-align: center;
+  font-size: 50px;
+  color: rgb(42, 151, 87);
+  margin-top: 25px;
+}
+
+.about-text {
+  margin-right: 25%;
+  font-size: 22px;
+}
+
+.home-page {
+  margin-top: 50%;
+  font-size: 75px;
+  color: rgb(25, 216, 152);
+  
+}
+
 .chef-name {
   text-align: left;
+  color: rgb(42, 151, 87);
 }
 
 .chef-bio {
@@ -15,6 +39,16 @@
   font-size: 50px;
   color: rgb(42, 151, 87);
   margin-top: 25px;
+}
+
+.bio-title {
+  color: rgb(42, 151, 87);
+}
+
+.recipe-header {
+  font-size: 50px;
+  margin-top: 25px;
+  color: maroon;
 }
 
 .App-header {
