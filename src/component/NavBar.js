@@ -1,5 +1,4 @@
 import React from 'react';
-import Container from '../container/Container';
 import { NavLink } from 'react-router-dom';
  
 const link = {
@@ -16,7 +15,6 @@ class Navbar extends React.Component {
   render() {
     return (
       <div>
-          <Container>
 
             <NavLink
                 to="/"
@@ -69,24 +67,33 @@ class Navbar extends React.Component {
                 Create a Chef
             </NavLink>
 
-        </Container>
+            <NavLink
+                to="/recipes"
+                exact
+                style={link}
+                activeStyle={{
+                    background: 'maroon',
+                    color: 'white'
+                }}
+            >
+                Recipes
+            </NavLink>
+
+            <NavLink
+                to="/recipes/new"
+                exact
+                style={link}
+                activeStyle={{
+                    background: 'maroon',
+                    color: 'white'
+                }}
+            >
+                Add a Recipe
+            </NavLink>
+
       </div>
     )
   }
 }
  
 export default Navbar;
-
-// export default (props) => {
-//     return (
-//         <nav>
-//             <Container>
-//                 <Link to="/">Home</Link>
-//                 <ul className="right">
-//                     <li><Link to="/chefs">Chefs</Link> </li>
-//                     <li><Link to="/chefs/new">Create A Chef</Link> </li>
-//                 </ul>
-//             </Container>
-//         </nav>
-//     )
-// }
