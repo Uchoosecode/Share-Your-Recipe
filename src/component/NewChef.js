@@ -13,38 +13,37 @@ export class NewChef extends Component {
        initialState
     }
 
-    handleChange = e => {
+    handleChange = (e) => {
         this.setState({
             [e.target.name]: e.target.value})
     }
 
-    handleSubmit = e => {
+    resetForm = () => {
+        this.setState(initialState)
+      }
+
+    handleSubmit = (e) => {
         e.preventDefault();
 
-        this.props.createChef(this.state, this.props.history)
-        .then(res => {
-            if (!res.error) {
-                this.resetForm()
-                this.props.history.push("/chefs")
-            }
-        })
+        this.props.createChef(this.state)
+        this.resetForm();
     }
-
 
     render() {
         return (
             <div className="NewChef">
                 <h4>Create a Chef</h4>
-                    <form onSubmit={this.handleSubmit}>
+                    <form className="chef-form" onSubmit={this.handleSubmit}>
                         <input
                             name="name"
                             placeholder="name"
                             onChange={this.handleChange}
                             value={this.state.name} /><br/>
 
-                        <input
+                        <br></br><textarea
                             name="bio"
                             placeholder="bio"
+                            type="text"
                             onChange={this.handleChange}
                             value={this.state.bio} /><br/>
 
@@ -55,4 +54,4 @@ export class NewChef extends Component {
     }
 }
 
-export default connect(null, { createChef})(NewChef);
+export default connect(null, { createChef })(NewChef);
