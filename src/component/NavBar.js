@@ -10,7 +10,6 @@ const link = {
   color: 'black',
 }
 
-
 class Navbar extends React.Component {
   render() {
     return (
@@ -77,18 +76,6 @@ class Navbar extends React.Component {
                 }}
             >
                 Recipes
-            </NavLink>
-
-            <NavLink
-                to="/recipes/new"
-                exact
-                style={link}
-                activeStyle={{
-                    background: 'maroon',
-                    color: 'white'
-                }}
-            >
-                Add a Recipe
             </NavLink>
 
       </div>
