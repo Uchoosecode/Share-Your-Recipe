@@ -1,12 +1,12 @@
 import React, { Component } from 'react';
 import './App.css';
+import { Switch, Route } from 'react-router-dom';
 import NavBar from './component/NavBar'
+import Home from './component/Home'
 import About from './component/About'
 import NewChef from './component/NewChef';
-import NewRecipe from './component/NewRecipe';
 import ChefContainer from './container/ChefContainer';
 import RecipeContainer from './container/RecipeContainer'
-import { Switch, Route } from 'react-router-dom';
 
 import { connect } from 'react-redux';
 import { fetchChefs } from './action/chefs';
@@ -26,11 +26,11 @@ class App extends Component {
      <div className="App">
       <NavBar />
         <Switch>
-          <Route path="/chefs" component={ChefContainer} />
           <Route exact path="/chefs/new" component={NewChef} />       
+          <Route path="/chefs" component={ChefContainer} />
           <Route path="/about" component={About} /> 
+          <Route path="/" component={Home} />     
           <Route path="/recipes" component={RecipeContainer} />      
-          <Route exact path="recipes/new" component={NewRecipe} />     
         </Switch>
      </div>
 
