@@ -8,9 +8,14 @@ const initialState = {
 }
 
 export class NewChef extends Component {
-
-    state = {
-       initialState
+    constructor(props) {
+        super(props);
+        
+        this.state = {
+            initialState
+        }
+        this.handleChange = this.handleChange.bind(this);
+        this.handleSubmit = this.handleSubmit.bind(this);
     }
 
     handleChange = (e) => {
@@ -25,7 +30,8 @@ export class NewChef extends Component {
     handleSubmit = (e) => {
         e.preventDefault();
 
-        this.props.createChef(this.state)
+        this.props.createChef(this.state, this.props.history)
+        this.props.history.push("/chefs")
         this.resetForm();
     }
 
@@ -33,18 +39,18 @@ export class NewChef extends Component {
         return (
             <div className="NewChef">
                 <h4>Create a Chef</h4>
-                    <form className="chef-form" onSubmit={this.handleSubmit}>
+                    <form className="chef-form" onSubmit={event => this.handleSubmit(event)}>
                         <input
                             name="name"
                             placeholder="name"
-                            onChange={this.handleChange}
+                            onChange={event => this.handleChange(event)}
                             value={this.state.name} /><br/>
 
                         <br></br><textarea
                             name="bio"
                             placeholder="bio"
                             type="text"
-                            onChange={this.handleChange}
+                            onChange={event => this.handleChange(event)}
                             value={this.state.bio} /><br/>
 
                         <input type="submit" value="Create Chef" />
