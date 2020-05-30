@@ -3,16 +3,22 @@ import React from 'react';
 const Chefs = (props) => {
     console.log(props.chefs.chefs)
     return (
-        <div className="Chef">
+        props.chefs.chefs
+        
+        ? <div className="Chef">
+            
             <div className="chef-header">Chefs</div>
             {props.chefs.chefs.map(chef =>
-                <ul key={chef.id}>
-                    <h2 className="chef-name"> {chef.name}</h2>
+                <React.Fragment key={chef.id}>
+                    <h2 className="chef-name"><small>{chef.id}.</small> {chef.name}</h2>
                     <p className="chef-bio"><strong className="bio-title">Bio: </strong> {chef.bio} </p>
-                </ul>
+                
+                
+            
+                </React.Fragment >
             )}
         </div>
-       
+       : <h3>.....Still Loading.....</h3>
     )
 }
 
