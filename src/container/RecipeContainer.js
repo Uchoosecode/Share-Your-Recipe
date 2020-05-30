@@ -1,5 +1,6 @@
 import React from 'react'
 import { connect } from 'react-redux'
+import { Route } from 'react-router-dom'
 
 import { fetchRecipes } from '../action/recipes'
 import Recipes from '../component/Recipes'
@@ -14,10 +15,7 @@ class RecipeContainer extends React.Component {
         console.log(this.props)
         return (
             <div>
-
-                <Recipes recipes={this.props.recipes} />
-
-                RecipeContainer                
+                <Route exact path="/recipes" render={() => <Recipes recipes={this.props.recipes} />} />
             </div>
         )
     }
