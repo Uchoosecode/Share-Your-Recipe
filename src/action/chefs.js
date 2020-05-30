@@ -1,21 +1,24 @@
 
 export const fetchChefs = () => {
     return (dispatch) => {
-        dispatch({ type: 'LOAD_CHEFS'});
-        fetch('http://localhost:3001/api/v1/chefs')
-        .then(res => {
-            return res.json()
-        })
+        dispatch({ type: 'LOADING_CHEFS'});
+        fetch('http://localhost:3000/api/v1/chefs')
+        .then(res => { return res.json()})
         .then(chefJSON => {
-            dispatch({ type: 'ADD_CHEFS', chefs: chefJSON})
-        })      
+            if (chefJSON.error) {
+                alert(chefJSON.error)
+            }
+            else {
+                dispatch({ type: 'LOAD_CHEFS', chefs: chefJSON})}
+            })
+        }
     }
-}
+
 
 export const createChef = (chef) => {
     return (dispatch) => {
-       dispatch({ type: 'ADD_CHEFS'});
-        fetch("http://localhost:3001/api/v1/chefs", {
+    
+        fetch("http://localhost:3000/api/v1/chefs", {
             method: "POST",
             headers: {
                 "Content-Type": "application/json",
@@ -23,12 +26,17 @@ export const createChef = (chef) => {
             },
             body: JSON.stringify(chef)
         })
-        .then(res => {
-            return res.json()
-        })
+        .then(res => { return res.json()})
         .then(newChef => {
-            dispatch({type: 'ADD_CHEFS', chefs: newChef})
-        })
-
-    }
+            if (newChef.error) {
+                alert(newChef.error)
+            }
+            else {
+                dispatch({type: 'ADD_CHEF', chefs: newChef})
+            } 
+            return newChef
+            }
+            
+        )}
 }
+
