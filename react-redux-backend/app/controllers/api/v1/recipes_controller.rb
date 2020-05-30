@@ -18,7 +18,7 @@ class Api::V1::RecipesController < ApplicationController
     @recipe = Recipe.new(recipe_params)
 
     if @recipe.save
-      render json: @recipe, status: :created, location: @recipe, include: :chef
+      render json: @recipe, status: :created
     else
       render json: @recipe.errors, status: :unprocessable_entity
     end
@@ -43,7 +43,7 @@ class Api::V1::RecipesController < ApplicationController
     def set_recipe
       @recipe = Recipe.find(params[:id])
     end
-
+    
     # Only allow a trusted parameter "white list" through.
     def recipe_params
       params.require(:recipe).permit(:title, :ingredients, :instructions, :chef_id)
