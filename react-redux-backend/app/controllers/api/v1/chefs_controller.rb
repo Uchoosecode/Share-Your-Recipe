@@ -18,7 +18,7 @@ class Api::V1::ChefsController < ApplicationController
     @chef = Chef.new(chef_params)
 
     if @chef.save
-      render json: @chef, status: :created, location: @chef
+      render json: @chef, status: :created
     else
       render json: @chef.errors, status: :unprocessable_entity
     end
