@@ -78,6 +78,18 @@ class Navbar extends React.Component {
                 Recipes
             </NavLink>
 
+            <NavLink
+                to="/recipes/new"
+                exact
+                style={link}
+                activeStyle={{
+                    background: 'maroon',
+                    color: 'white'
+                }}
+            >
+                Add Your Recipes
+            </NavLink>
+
       </div>
     )
   }
