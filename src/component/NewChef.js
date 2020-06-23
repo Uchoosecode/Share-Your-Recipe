@@ -38,7 +38,7 @@ export class NewChef extends Component {
     render() {
         return (
             <div className="NewChef">
-                <h4>Create a Chef</h4>
+                <h4 className="form-title">Create a Chef</h4>
                     <form className="chef-form" onSubmit={event => this.handleSubmit(event)}>
                         <input
                             name="name"

@@ -10,8 +10,8 @@ const Recipes = (props) => {
                 {props.recipes.recipes.map(recipe => 
                 <React.Fragment key={recipe.id}>
                     <h2 className="recipe-title">{recipe.title}</h2>
-                    <p className="recipe-ing"> <strong className="recipe-cat">Ingredients: </strong>{recipe.ingredients} </p> 
-                    <p className="recipe-ins"> <strong className="recipe-cat">Instructions: </strong>{recipe.instructions} </p> 
+                    <p className="recipe-ing"> <strong className="recipe-cate">Ingredients: </strong>{recipe.ingredients} </p> 
+                    <p className="recipe-ins"> <strong className="recipe-cate">Instructions: </strong>{recipe.instructions} </p> 
                 </React.Fragment>
             )}
         </div>

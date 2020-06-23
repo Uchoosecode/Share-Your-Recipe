@@ -41,43 +41,44 @@ class NewRecipe extends Component {
     render() {
         return (
             <div className="NewRecipe">
-                <h4>Add a Recipe</h4>
+                <h4 className="form-title">Add a Recipe</h4>
+                <div className="recipe-instructions">**Add your Chef ID to add a Recipe!**</div>
                     <form onSubmit={event => this.handleSubmit(event)}>
                         
-                        <label>
+                        <label className="recipe-label">
                            Chef_ID:
                         <input
-                            className="input"
+                            className="input-chef_id"
                             name="chef_id"
                             placeholder="chef_id"
                             onChange={event => this.handleChange(event)}
                             value={this.state.chef_id} />
                         </label><br/>
                         
-                        <label>
+                        <label className="recipe-label">
                             Title:
                         <input
-                            className="input"
+                            className="input-title"
                             name="title"
                             placeholder="title"
                             onChange={event => this.handleChange(event)}
                             value={this.state.title} />
                         </label><br/>
 
-                        <label>
+                        <label className="recipe-label">
                             Ingredients:
                         <textarea
-                            className="input"
+                            className="input-ingredients"
                             name="ingredients"
                             placeholder="ingredients"
                             onChange={event => this.handleChange(event)}
                             value={this.state.ingredients} />
                         </label><br/>
                             
-                        <label>
+                        <label className="recipe-label">
                             Instructions:
                         <textarea
-                            className="input"
+                            className="input-instructions"
                             name="instructions"
                             placeholder="instructions"
                             onChange={event => this.handleChange(event)}
